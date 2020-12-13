@@ -7,8 +7,13 @@
 </head>
 <body>
 <div class="container">
-    <h1>Login</h1>
-    <form  th:action="@{/login}" method="POST">
+    <h1>Register</h1>
+    <form action="#" th:action="@{/regis}" method="POST">
+        <div class="form-group">
+            <label for="inputId">Id</label>
+            <input type="input" class="form-control" name="id" id="inputId">
+        </div>
+
         <div class="form-group">
             <label for="inputUser">User</label>
             <input type="input" class="form-control" name="username" id="inputUser">
@@ -23,6 +28,24 @@
             <input type="submit" class="btn btn-primary">
         </div>
     </form>
+    <hr>
+    <h1>All User</h1>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Password</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user: ${allUser}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.userName}"></td>
+            <td th:text="${user.passWord}"></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 </body>
