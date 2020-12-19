@@ -18,7 +18,8 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    public String getLoginPage() {
+    public String getLoginPage(Model model) {
+
         return "loginPage";
     }
 
@@ -31,10 +32,12 @@ public class LoginController {
         if (matchingUser != null) {
             model.addAttribute("greeting",
                     "Welcome, " + matchingUser.getUsername());
+            return "home";
         } else {
             // 3. ถ้าไม่ตรง แจ้งว่าไม่มีข้อมูล User นี้
             model.addAttribute("greeting", "Can't find User");
+            return "loginPage";
         }
-        return "redirect:home";
+
     }
 }

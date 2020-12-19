@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/regis")
 public class RegisterController {
 
     private UserService userService;
@@ -26,20 +25,26 @@ public class RegisterController {
     }
 
     //handle user request
-    @GetMapping
-    public String getRegisterPage(Model model) {
+    @GetMapping("/regis")
+    public String getRegisterPage() {
 
         //    step1: update model for template
-        model.addAttribute("allUser", userService.getUser());
+//        model.addAttribute("allUser", userService.getUser());
 
         //    step2: chose HTML template
         return "registerPage";
     }
-    @PostMapping
+    @PostMapping("/regis")
     public String registerUser(@ModelAttribute User user, Model model) {
-        userService.createUser(user);
-        model.addAttribute("allUser", userService.getUser());
-        return "registerPage";
+        if(userService.findUser(user.getUsername()) == null){
+            userService.createUser(user);
+            model.addAttribute("allUser", userService.getUser());
+            return "redirect:login";
+        } else {
+            model.addAttribute("allUser", "Username is already to used");
+            return "registerPage";
+        }
+
     }
 }
 

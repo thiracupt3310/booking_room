@@ -3,20 +3,27 @@ package com.example.Booking.room.model;
 
 public class User {
 
-    private int id;
+    private String firstname;
+    private String surname;
+
     private String username;
     private String passW;
 
     public User() {}
 
-    public User(int id, String username, String passW) {
-        this.id = id;
+    public User(String firstname, String surname, String username, String passW) {
+        this.firstname = firstname;
+        this.surname = surname;
         this.username = username;
         this.passW = passW;
     }
 
-    public int getId() {
-        return id;
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getSurname() {
+        return surname;
     }
 
     public String getUsername() {
@@ -27,8 +34,12 @@ public class User {
         return passW;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public void setUsername(String username) {
@@ -42,9 +53,10 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", userName='" + username + '\'' +
-                ", passWord='" + passW + '\'' +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + surname + '\'' +
+                ", username='" + username + '\'' +
+                ", passW='" + passW + '\'' +
                 '}';
     }
 }

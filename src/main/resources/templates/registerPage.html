@@ -3,50 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <link th:rel="stylesheet" th:href="@{css/bootstrap.min.css}">
-    <title>Login Page</title>
+    <link th:rel="stylesheet" th:href="@{css/regis_style.css}">
+    <title>Register Page</title>
 </head>
 <body>
-<div class="container">
-    <h1>Register</h1>
-    <form action="#" th:action="@{/regis}" method="POST">
+<div class="ontop">
+    <div class="registerheader">
+    <h1>Booking System</h1>
+    <div class="container">
+        <h2>Register</h2>
+        <h3 class="error_text" th:text="${greeting}"></h3>
+    <div class="form">
+        <form action="#" th:action="@{/regis}" method="POST">
         <div class="form-group">
-            <label for="inputId">Id</label>
-            <input type="input" class="form-control" name="id" id="inputId">
+<!--            <label for="inputFirstname">Firstname</label>-->
+            <input type="input" class="form-control" name="firstname" id="inputFirstname" placeholder="First name">
         </div>
 
         <div class="form-group">
-            <label for="inputUser">User</label>
-            <input type="input" class="form-control" name="username" id="inputUser">
+<!--            <label for="inputLastname">Lastname</label>-->
+            <input type="input" class="form-control" name="surname" id="inputSurname" placeholder="Surname">
         </div>
 
         <div class="form-group">
-            <label for="inputPassWord">Password</label>
-            <input type="password" class="form-control" name="passW" id="inputPassWord">
+<!--            <label for="inputUser">UserName</label>-->
+            <input type="input" class="form-control" name="username" id="inputUser" placeholder="New Username">
         </div>
 
         <div class="form-group">
-            <input type="submit" class="btn btn-primary">
+<!--            <label for="inputPassWord">Password</label>-->
+            <input type="password" class="form-control" name="passW" id="inputPassWord" placeholder="New Password">
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+<!--            <button class="btn btn-primary" type="submit">Register</button>-->
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
         </div>
     </form>
-    <hr>
-    <h1>All User</h1>
-    <table class="table table-bordered">
-        <thead class="thead-light">
-        <tr>
-            <th>Id</th>
-            <th>Username</th>
-            <th>Password</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="user: ${allUser}">
-            <td th:text="${user.id}"></td>
-            <td th:text="${user.userName}"></td>
-            <td th:text="${user.passWord}"></td>
-        </tr>
-        </tbody>
-    </table>
+    </div>
+<!--        <h1>All User</h1>-->
+<!--        <table class="table table-bordered">-->
+<!--        <thead class="thead-light">-->
+<!--        <tr>-->
+<!--            <th>Firstname</th>-->
+<!--            <th>Surname</th>-->
+<!--            <th>Username</th>-->
+<!--            <th>Password</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each="user: ${allUser}">-->
+<!--            <td th:text="${user.firstname}"></td>-->
+<!--            <td th:text="${user.surname}"></td>-->
+<!--            <td th:text="${user.username}"></td>-->
+<!--            <td th:text="${user.passW}"></td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+    </div>
 </div>
-
+</div>
 </body>
 </html>

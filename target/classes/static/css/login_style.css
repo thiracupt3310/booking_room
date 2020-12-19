@@ -1,0 +1,39 @@
+h1 { 
+    text-align: center;
+    }
+    
+    h2 {
+        text-align: center;
+    }
+
+    .loginheader {
+        width: 400px;
+        height:  auto;
+        margin: auto;
+        /* border: 3px solid #73AD21; */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 8px;
+    }
+    .error_text {
+        color: red;
+    }
+    .ontop {
+        margin-top: 100px;
+        margin-bottom: auto;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .form {
+        margin-bottom: 14px;
+        border: 3px solid #ffffff;
+        
+       
+    }
+    
+    .container {
+        margin-bottom: 14px;
+        border: 3px solid #ffffff;
+        border-radius: 8px;
+        
+    }
