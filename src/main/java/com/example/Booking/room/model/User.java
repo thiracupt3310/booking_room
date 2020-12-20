@@ -8,6 +8,7 @@ public class User {
     private String username;
     private String passW;
 
+
     public User() {}
 
     public User(String firstname, String surname, String username, String passW) {
@@ -15,6 +16,7 @@ public class User {
         this.surname = surname;
         this.username = username;
         this.passW = passW;
+
     }
 
     public String getFirstname() {
@@ -33,6 +35,7 @@ public class User {
         return passW;
     }
 
+
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
@@ -48,6 +51,8 @@ public class User {
     public void setPassW(String passW) {
         this.passW = passW;
     }
+
+
 
     @Override
     public String toString() {

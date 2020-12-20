@@ -29,22 +29,22 @@ public class RegisterController {
     public String getRegisterPage(Model model) {
 
         //    step1: update model for template
-            model.addAttribute("allUser", userService.getUser());
+            //model.addAttribute("allUser", userService.getUser());
 
         //    step2: chose HTML template
         return "registerPage";
     }
     @PostMapping("/regis")
     public String registerUser(@ModelAttribute User user, Model model) {
-        if(userService.findUser(user.getUsername()) == null){
-            userService.createUser(user);
-            model.addAttribute("allUser", userService.getUser());
-            return "redirect:login";
-        } else {
-            model.addAttribute("greeting", "username is already existed.");
-            return "registerPage";
-        }
 
-    }
+            if (userService.findUser(user.getUsername()) == null) {
+                userService.createUser(user);
+                model.addAttribute("allUser", userService.getUser());
+                return "redirect:login";
+            } else {
+                model.addAttribute("greeting", "username is already existed.");
+                return "registerPage";
+            }
+        }
 }
 
