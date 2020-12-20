@@ -40,7 +40,8 @@ public class RegisterController {
             if (userService.findUser(user.getUsername()) == null) {
                 userService.createUser(user);
                 model.addAttribute("allUser", userService.getUser());
-                return "redirect:login";
+                model.addAttribute("isSuccess","Successfully registered");
+                return "registerPage";
             } else {
                 model.addAttribute("greeting", "username is already existed.");
                 return "registerPage";

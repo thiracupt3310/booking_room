@@ -8,8 +8,12 @@
 </head>
 
 <body>
+<div th:if="${isSuccess != null}" class="container">
+    <div class="alert alert-success" role="alert" th:text="${isSuccess}"></div>
+    <a href="http://localhost:8095/login" class="btn btn-secondary">Back to Login</a>
+</div>
 
-<div class="ontop">
+<div th:unless="${isSuccess != null}" class="ontop">
     <div class="registerheader">
     <h1>Booking System</h1>
     <div class="container">
@@ -34,7 +38,7 @@
 
         <div class="form-group">
 <!--            <label for="inputPassWord">Password</label>-->
-            <input type="password" class="form-control" name="passW" id="inputPassWord" placeholder="New Password" onchange="validatePassword();" required>
+            <input type="password" class="form-control" name="passW" id="inputPassWord" placeholder="Password" onchange="validatePassword();" required>
         </div>
             <div class="form-group">
                 <!--            <label for="inputPassWord">Password</label>-->
