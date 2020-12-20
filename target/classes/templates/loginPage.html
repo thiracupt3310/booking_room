@@ -7,13 +7,14 @@
     <title>Login Page</title>
 </head>
 <body>
+
 <div class="ontop">
     <div class="loginheader">
         <h1>Booking System</h1>
         <div class="container">
     <h1>Login</h1>
-    <h3 class="error_text" th:text="${greeting}"></h3>
      <div class="form">
+         <p class="error_text" th:text="${greeting}"></p>
         <form  th:action="@{/login}" method="POST">
         <div class="form-group">
 <!--            <label for="inputUser">User</label>-->

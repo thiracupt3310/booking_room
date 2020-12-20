@@ -35,7 +35,7 @@ public class LoginController {
             return "home";
         } else {
             // 3. ถ้าไม่ตรง แจ้งว่าไม่มีข้อมูล User นี้
-            model.addAttribute("greeting", "Can't find User");
+            model.addAttribute("greeting", "Your username and/or password do not match.");
             return "loginPage";
         }
 

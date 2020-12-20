@@ -26,10 +26,10 @@ public class RegisterController {
 
     //handle user request
     @GetMapping("/regis")
-    public String getRegisterPage() {
+    public String getRegisterPage(Model model) {
 
         //    step1: update model for template
-//        model.addAttribute("allUser", userService.getUser());
+            model.addAttribute("allUser", userService.getUser());
 
         //    step2: chose HTML template
         return "registerPage";
@@ -41,7 +41,7 @@ public class RegisterController {
             model.addAttribute("allUser", userService.getUser());
             return "redirect:login";
         } else {
-            model.addAttribute("allUser", "Username is already to used");
+            model.addAttribute("greeting", "username is already existed.");
             return "registerPage";
         }
 
