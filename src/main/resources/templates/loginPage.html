@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+    <link th:rel="stylesheet" th:href="@{css/login_style.css}">
+    <title>Login Page</title>
+</head>
+<body>
+<div class="ontop">
+    <div class="loginheader">
+        <h1>Booking System</h1>
+        <div class="container">
+    <h1>Login</h1>
+     <div class="form">
+         <div th:if="${greeting != null}" class="alert alert-danger" role="alert" th:text="${greeting}"></div>
+        <form  th:action="@{/login}" method="POST">
+        <div class="form-group">
+<!--            <label for="inputUser">User</label>-->
+            <input type="input" class="form-control" name="username" id="inputUser" placeholder="Username" required>
+        </div>
+
+        <div class="form-group">
+<!--            <label for="inputPassWord">Password</label>-->
+            <input type="password" class="form-control" name="passW" id="inputPassWord" placeholder="Password" required>
+        </div>
+
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+            <a class="text-secondary" href="http://localhost:8092/regis">Click here to register</a>
+        </div>
+
+        </form>
+     </div>
+</div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+
+<head>
+    <link th:rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+</head>
+<body>
+<form method="POST">
+    <div class="col-3">
+
+    <div class="form-group ">
+        <label>Room</label>
+        <input class="form-control" disabled type="text" th:field="*{transaction.room_id}">
+    </div>
+
+        <div class="form-group ">
+            <label>Date</label>
+            <input class="form-control" disabled type="text" th:value="${transaction.date}">
+        </div>
+        <div class="form-group ">
+            <label>Start time</label>
+
+            <input class="form-control" disabled type="text" th:field="*{transaction.startTime}">
+
+        </div>
+        <div class="form-group ">
+            <label>End time</label>
+
+            <input class="form-control" disabled type="text" th:field="*{transaction.endTime}">
+
+        </div>
+
+        <div class="form-group ">
+            <label>User</label>
+
+            <input name="username" class="form-control" disabled type="text" th:field="*{transaction.username}">
+
+        </div>
+        <input name="room_id" id="room_id" type="text" th:value="${transaction.room_id}" hidden>
+        <input name="date" id="date" type="text" th:value="${transaction.date}" hidden>
+        <input name="startTime" id="start" type="time" th:value="${transaction.startTime}" hidden>
+        <input name="endTime" id="end" type="time" th:value="${transaction.endTime}" hidden>
+        <input name="status" type="text" value="1" hidden>
+        <input name="username" type="text" th:value="${username}" hidden>
+
+        <input type="submit" class="btn btn-danger" value="Cancel">
+        <a class="btn btn-secondary"
+           th:href="'http://localhost:8092/booking/' + ${transaction.username} + '&' + ${date} + '&1'">Back</a>
+    </div>
+</form>
+</body>
+</html>
