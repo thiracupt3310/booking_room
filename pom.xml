@@ -53,11 +53,15 @@
 			<artifactId>jakarta.persistence-api</artifactId>
 			<version>2.2.3</version>
 		</dependency>
+<<<<<<< HEAD
 		<dependency>
 			<groupId>org.mindrot</groupId>
 			<artifactId>jbcrypt</artifactId>
 			<version>0.4</version>
 		</dependency>
+=======
+
+>>>>>>> f12d0b25180366ea40c8aaba1d47e45b15880ccd
 	</dependencies>
 
 	<build>
