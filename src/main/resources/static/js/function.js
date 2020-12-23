@@ -13,12 +13,8 @@ function setModal(room_id, date, start, end ){
 
 function handleChange(){
     let date = document.getElementById("picker").value
-<<<<<<< HEAD
     let username = document.getElementById("username").value
     window.location.href = "http://localhost:8092/booking/" + username + "&" + date + "&1"
-=======
-    window.location.href = "http://localhost:8092/booking/" + date + "&1"
->>>>>>> f12d0b25180366ea40c8aaba1d47e45b15880ccd
 }
 
 
