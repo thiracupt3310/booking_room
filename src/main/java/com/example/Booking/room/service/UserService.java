@@ -1,45 +1,46 @@
 package com.example.Booking.room.service;
 
 
-import com.example.Booking.room.data.UserRepository;
 import com.example.Booking.room.model.Transaction;
 import com.example.Booking.room.model.User;
 import org.mindrot.jbcrypt.BCrypt;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
 import java.util.List;
+
 
 @Service
 public class UserService {
 
     private RestTemplate restTemplate;
-    private UserRepository repository;
 
-    public UserService(RestTemplate restTemplate, UserRepository repository) {
+    public UserService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
-        this.repository = repository;
     }
 
 
     public void createUser(User user) {
+        String url = "http://localhost:8091/api/user/" + user.getUsername();
         String hashPass = hash(user.getPassW());
         user.setPassW(hashPass);
-        repository.save(user);
+        restTemplate.postForObject(url, user, User.class);
+
+    }
+    public List<User> getUser() {
+        String url = "http://localhost:8091/api/user";
+        ResponseEntity<User[]> response =
+                restTemplate.getForEntity(url, User[].class);
+
+        User[] user = response.getBody();
+        return Arrays.asList(user);
     }
 
     private String hash(String pin) {
         String salt = BCrypt.gensalt(12);
         return BCrypt.hashpw(pin, salt);
-    }
-
-
-    public List<User> getUser() {
-
-        return repository.findAll();
     }
 
     public User findUser(String username) {
@@ -55,10 +56,9 @@ public class UserService {
         ResponseEntity<User> response =
                 restTemplate.getForEntity(url, User.class);
 
-        User user = response.getBody();
 
         // 1. หา User ที่มี Username ตรงกับพารามิเตอร์
-        User storeduser = findUser(inputUser.getUsername());
+        User storeduser = response.getBody();;
 
         // 2. ถ้ามี Username ตรง ให้เช็ค passw ว่าตรงกันไหม โดยใช้ฟังก์ชันเกี่ยวกับ hash
         if (storeduser != null) {
